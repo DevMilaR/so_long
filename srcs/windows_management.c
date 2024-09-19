@@ -1,4 +1,4 @@
-#include "so_long.c"
+#include "so_long.h"
 
 int	destroy_window(t_game *game)
 {
