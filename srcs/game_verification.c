@@ -1,4 +1,4 @@
-#include "so_long.c"
+#include "so_long.h"
 
 void	verification_of_playalibtly(t_game *game)
 {
