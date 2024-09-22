@@ -55,7 +55,7 @@ typedef struct s_player
 	int		collectable;
 	int		x;
 	int		y;
-	int		flous;
+	int		totalcollected;
 	bool	exit;
 	int		moves;
 
@@ -89,9 +89,9 @@ void			ft_error(char *message);
 void			validate_arg(int argc);
 void			ft_free_game(t_game *game);
 void			start_player(t_game *game);
-void			verification_of_playalibtly(t_game *game);
-void			verification_recursivity(t_game *game, int y, int x);
-void			verification(t_game *game);
+void			game_status_check(t_game *game);
+void			map_recursive_check(t_game *game, int y, int x);
+void			verificate_check(t_game *game);
 void			put_floor(t_game *game, int x, int y);
 void			put_place_exit(t_game *game, int x, int y);
 void			put_wall(t_game *game, int x, int y);
