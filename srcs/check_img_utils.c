@@ -29,17 +29,17 @@ void	put_img(t_game *game, int x, int y)
 	char	element;
 
 	element = game->map.map[y][x];
-	if (now == '1')
+	if (element == '1')
 		put_wall(game, x, y);
-	else if (now == '0')
+	else if (element == '0')
 		put_floor(game, x, y);
-	else if (now == 'P')
+	else if (element == 'P')
 		put_player(game, x, y);
-	else if (now == 'E')
+	else if (element == 'E')
 		put_place_exit(game, x, y);
-	else if (now == 'C')
+	else if (element == 'C')
 		put_collectable(game, x, y);
-	else if (now == 'D')
+	else if (element == 'D')
 		put_player(game, x, y);
 }
 
