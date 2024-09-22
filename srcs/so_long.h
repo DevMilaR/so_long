@@ -104,7 +104,7 @@ void			update_player_empy(t_game *game, int my, int mx);
 void			update_after_collect(t_game *game, int my, int mx);
 void			move(t_game *game, int my, int mx);
 int				handler_keys(int keycode, t_game *game);
-int				destroy_window(t_game *game);
+int				ft_end(t_game *game);
 void			hooks(t_game *game);
 int				main(int argc, char **argv);
 
