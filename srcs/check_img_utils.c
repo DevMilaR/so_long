@@ -43,7 +43,7 @@ void	put_img(t_game *game, int x, int y)
 		put_player(game, x, y);
 }
 
-void	charg_img(t_game *game)
+void	draw_img(t_game *game)
 {
 	int	x;
 	int	y;
