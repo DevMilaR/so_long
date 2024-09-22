@@ -31,7 +31,7 @@ int	main(int argc, char **argv)
 	game.mlx_win = mlx_new_window(game.mlx, game.map.x * 100,
 			game.map.y * 100, "So_long");
 	hooks(&game);
-	charg_img(&game);
+	draw_img(&game);
 	mlx_loop(game.mlx);
 	return (0);
 }
