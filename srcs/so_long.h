@@ -27,8 +27,8 @@
 # define WALL "xpm/wall.xpm"
 # define PLAYER "xpm/player.xpm"
 # define FLOOR "xpm/floor.xpm"
-# define DOOR "xpm/exit.xpm"
-# define COIN "xpm/collectable.xpm"
+# define EARTH "xpm/exit.xpm"
+# define COLLECTABLE "xpm/collectable.xpm"
 # define Q XK_q
 # define W XK_w
 # define A XK_a
@@ -65,7 +65,7 @@ typedef struct s_image
 {
 	void	*player;
 	void	*floor;
-	void	*coin;
+	void	*collectable;
 	void	*exit;
 	void	*wall;
 }			t_image;
