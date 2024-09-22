@@ -88,7 +88,7 @@ void			check_size(t_game *game);
 void			ft_error(char *message);
 void			validate_arg(int argc);
 void			ft_free_game(t_game *game);
-void			player_initial_position(t_game *game);
+void			start_player(t_game *game);
 void			verification_of_playalibtly(t_game *game);
 void			verification_recursivity(t_game *game, int y, int x);
 void			verification(t_game *game);
