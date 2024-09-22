@@ -81,9 +81,6 @@ void	check_wall_map(t_game *game)
 	}
 }
 
-/*Verificar que el mapa sea rectangular: que todas las filas tengan la misma
-cantidad de columnas*/
-
 void	check_size(t_game *game)
 {
 	char	*line;
