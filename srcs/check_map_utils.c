@@ -45,7 +45,7 @@ void	count_elements(t_game *game)
 			if (game->map.map[y][x] == 'P')
 				game->map.player++;
 			else if (game->map.map[y][x] == 'C')
-				game->player.coin++;
+				game->player.collectable++;
 			else if (game->map.map[y][x] == 'E')
 				game->map.exit++;
 			else
@@ -56,8 +56,8 @@ void	count_elements(t_game *game)
 	}
 	if (game->map.player != 1 || game->map.exit != 1)
 		ft_error("Invalid number of player or exit");
-	if (game->player.coin < 1)
-		ft_error("Invalid number of coins");
+	if (game->player.collectable < 1)
+		ft_error("Invalid number of collectables");
 }
 
 void	check_wall_map(t_game *game)
