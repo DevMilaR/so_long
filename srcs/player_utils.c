@@ -35,7 +35,7 @@ void	start_player(t_game *game)
 	}
 }
 
-void	check_0(t_game *game, int my, int mx)
+void	update_player_pos(t_game *game, int my, int mx)
 {
 	if (game->map.map[game->player.y][game->player.x] != 'D')
 		game->map.map[game->player.y][game->player.x] = '0';
@@ -44,13 +44,13 @@ void	check_0(t_game *game, int my, int mx)
 	game->map.map[game->player.y + my][game->player.x + mx] = 'P';
 	game->player.y += my;
 	game->player.x += mx;
-	charg_img(game);
+	draw_img(game);
 	ft_printf("moves ---> %d\n", game->player.moves++);
 }
 
 void	check_collects(t_game *game, int my, int mx)
 {
-	game->player.coin--;
+	game->player.collectable--;
 	if (game->map.map[game->player.y][game->player.x] != 'D')
 		game->map.map[game->player.y][game->player.x] = '0';
 	else
@@ -58,7 +58,7 @@ void	check_collects(t_game *game, int my, int mx)
 	game->map.map[game->player.y + my][game->player.x + mx] = 'P';
 	game->player.y += my;
 	game->player.x += mx;
-	charg_img(game);
+	draw_img(game);
 	ft_printf("moves ---> %d\n", game->player.moves++);
 }
 
@@ -72,8 +72,8 @@ void	move(t_game *game, int my, int mx)
 	if (game->map.map[py + my][px + mx] == '1')
 		return ;
 	if (game->map.map[py + my][px + mx] == '0')
-		return (check_0(game, my, mx));
-	if (game->map.map[py + my][px + mx] == 'E' && game->player.coin == 0)
+		return (update_player_pos(game, my, mx));
+	if (game->map.map[py + my][px + mx] == 'E' && game->player.collectable == 0)
 		return ((void)(destroy_window(game)));
 	if (game->map.map[py + my][px + mx] == 'C')
 		return (check_collects(game, my, mx));
@@ -85,7 +85,7 @@ void	move(t_game *game, int my, int mx)
 		game->player.y += my;
 		game->player.x += mx;
 	}
-	charg_img(game);
+	draw_img(game);
 	ft_printf("moves ---> %d\n", game->player.moves++);
 }
 
