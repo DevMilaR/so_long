@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 	read_map(&game);
 	check_wall_map(&game);
 	count_elements(&game);
-	player_initial_position(&game);
+	start_player(&game);
 	verification(&game);
 	verification_of_playalibtly(&game);
 	read_map(&game);
