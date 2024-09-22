@@ -12,11 +12,11 @@
 
 #include "so_long.h"
 
-int	destroy_window(t_game *game)
+int	ft_end(t_game *game)
 {
 	mlx_destroy_window(game->mlx, game->mlx_win);
 	mlx_destroy_image(game->mlx, game->image.exit);
-	mlx_destroy_image(game->mlx, game->image.coin);
+	mlx_destroy_image(game->mlx, game->image.collectable);
 	mlx_destroy_image(game->mlx, game->image.floor);
 	mlx_destroy_image(game->mlx, game->image.player);
 	ft_free_game(game);
@@ -25,6 +25,6 @@ int	destroy_window(t_game *game)
 
 void	hooks(t_game *game)
 {
-	mlx_hook(game->mlx_win, 17, 1, destroy_window, game);
+	mlx_hook(game->mlx_win, 17, 1, ft_end, game);
 	mlx_hook(game->mlx_win, 2, 1, handler_keys, game);
 }
