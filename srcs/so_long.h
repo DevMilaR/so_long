@@ -52,7 +52,7 @@ typedef struct s_map
 
 typedef struct s_player
 {
-	int		coin;
+	int		collectable;
 	int		x;
 	int		y;
 	int		flous;
