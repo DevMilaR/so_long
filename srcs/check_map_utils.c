@@ -12,6 +12,18 @@
 
 #include "so_long.h"
 
+void	check_format(char *argv1, t_game *game)
+{
+	int	i;
+
+	i = ft_strlen(argv1);
+	if (ft_strncmp(&argv1[i - 4], ".ber", 4) != 0)
+	{
+		ft_error("\nError\n Map file must have .ber\n");
+	}
+	game->map.path = argv1;
+}
+
 void	check_elements(t_game *game, int x, int y)
 {
 	if (game->map.map[y][x] != '1' && game->map.map[y][x] != '0'
@@ -67,19 +79,6 @@ void	check_wall_map(t_game *game)
 			game->map.map[y][game ->map.x - 1] != '1')
 			ft_error("\nError: Map is not closed\n");
 	}
-}
-
-/*Primero: Verificar .ber y alamcenar en game->map.path*/
-void	check_format(char *argv1, t_game *game)
-{
-	int	i;
-
-	i = ft_strlen(argv1);
-	if (ft_strncmp(&argv1[i - 4], ".ber", 4) != 0)
-	{
-		ft_error("\nError\n Map file must have .ber\n");
-	}
-	game->map.path = argv1;
 }
 
 /*Verificar que el mapa sea rectangular: que todas las filas tengan la misma
