@@ -30,7 +30,7 @@ void	read_map(t_game *game)
 	i = 0;
 	while (i < game->map.y && line)
 	{
-		game->map.map[i] = strdup(line);
+		game->map.map[i] = ft_strdup(line);
 		free(line);
 		line = get_next_line(fd);
 		i++;
