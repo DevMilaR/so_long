@@ -35,7 +35,7 @@ void	start_player(t_game *game)
 	}
 }
 
-void	update_player_pos(t_game *game, int my, int mx)
+void	update_player_empty(t_game *game, int my, int mx)
 {
 	if (game->map.map[game->player.y][game->player.x] != 'D')
 		game->map.map[game->player.y][game->player.x] = '0';
@@ -48,7 +48,7 @@ void	update_player_pos(t_game *game, int my, int mx)
 	ft_printf("moves ---> %d\n", game->player.moves++);
 }
 
-void	check_collects(t_game *game, int my, int mx)
+void	update_after_collect(t_game *game, int my, int mx)
 {
 	game->player.collectable--;
 	if (game->map.map[game->player.y][game->player.x] != 'D')
@@ -72,11 +72,11 @@ void	move(t_game *game, int my, int mx)
 	if (game->map.map[py + my][px + mx] == '1')
 		return ;
 	if (game->map.map[py + my][px + mx] == '0')
-		return (update_player_pos(game, my, mx));
+		return (update_player_empty(game, my, mx));
 	if (game->map.map[py + my][px + mx] == 'E' && game->player.collectable == 0)
 		return ((void)(destroy_window(game)));
 	if (game->map.map[py + my][px + mx] == 'C')
-		return (check_collects(game, my, mx));
+		return (update_after_collect(game, my, mx));
 	else
 		game->map.map[py][px] = '0';
 	if (game->map.map[py + my][px + mx] == 'E')
