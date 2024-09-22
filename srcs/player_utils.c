@@ -74,7 +74,7 @@ void	move(t_game *game, int my, int mx)
 	if (game->map.map[py + my][px + mx] == '0')
 		return (update_player_empty(game, my, mx));
 	if (game->map.map[py + my][px + mx] == 'E' && game->player.collectable == 0)
-		return ((void)(destroy_window(game)));
+		return ((void)(ft_end(game)));
 	if (game->map.map[py + my][px + mx] == 'C')
 		return (update_after_collect(game, my, mx));
 	else
@@ -94,7 +94,7 @@ int	handler_keys(int keycode, t_game *game)
 	if (game->player.moves == 0)
 		game->player.moves++;
 	if (keycode == Q || keycode == ESC)
-		destroy_window(game);
+		ft_end(game);
 	else if (keycode == W || keycode == KEY_UP)
 		move(game, -1, 0);
 	else if (keycode == S || keycode == KEY_DOWN)
