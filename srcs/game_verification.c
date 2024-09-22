@@ -12,31 +12,31 @@
 
 #include "so_long.h"
 
-void	verification_of_playalibtly(t_game *game)
+void	game_status_check(t_game *game)
 {
-	if (game->player.coin != game->player.flous || game->player.exit == false)
+	if (game->player.collectable != game->player.totalcollected || game->player.exit == false)
 	{
 		ft_error("\n map is unplayable \n");
 	}
 	ft_free_game(game);
 }
 
-void	verification_recursivity(t_game *game, int y, int x)
+void	map_recursive_check(t_game *game, int y, int x)
 {
 	if (game->map.map[y][x] == '1' || game->map.map[y][x] == 'X')
 		return ;
 	if (game->map.map[y][x] == 'C')
-		game->player.flous++;
+		game->player.totalcollected++;
 	if (game->map.map[y][x] == 'E')
 		game->player.exit = true;
 	game->map.map[y][x] = 'X';
-	verification_recursivity(game, y + 1, x);
-	verification_recursivity(game, y - 1, x);
-	verification_recursivity(game, y, x + 1);
-	verification_recursivity(game, y, x - 1);
+	map_recursive_check(game, y + 1, x);
+	map_recursive_check(game, y - 1, x);
+	map_recursive_check(game, y, x + 1);
+	map_recursive_check(game, y, x - 1);
 }
 
-void	verification(t_game *game)
+void	verificate_check(t_game *game)
 {
-	verification_recursivity(game, game->player.y, game->player.x);
+	map_recursive_check(game, game->player.y, game->player.x);
 }
