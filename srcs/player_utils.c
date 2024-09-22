@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-void	player_initial_position(t_game *game)
+void	start_player(t_game *game)
 {
 	int	x;
 	int	y;
