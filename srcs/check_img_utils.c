@@ -26,9 +26,9 @@ void	charge_xpm(t_game *game)
 
 void	put_img(t_game *game, int x, int y)
 {
-	char	now;
+	char	element;
 
-	now = game->map.map[y][x];
+	element = game->map.map[y][x];
 	if (now == '1')
 		put_wall(game, x, y);
 	else if (now == '0')
