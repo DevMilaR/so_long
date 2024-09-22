@@ -24,8 +24,8 @@ int	main(int argc, char **argv)
 	check_wall_map(&game);
 	count_elements(&game);
 	start_player(&game);
-	verification(&game);
-	verification_of_playalibtly(&game);
+	verificate_check(&game);
+	game_status_check(&game);
 	read_map(&game);
 	game.mlx = mlx_init();
 	game.mlx_win = mlx_new_window(game.mlx, game.map.x * 100,
