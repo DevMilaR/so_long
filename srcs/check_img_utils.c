@@ -17,10 +17,10 @@ void	charge_xpm(t_game *game)
 	int	x;
 	int	y;
 
-	game->image.coin = mlx_xpm_file_to_image(game->mlx, COIN, &(x), &(y));
+	game->image.collectable = mlx_xpm_file_to_image(game->mlx, COLLECTABLE, &(x), &(y));
 	game->image.player = mlx_xpm_file_to_image(game->mlx, PLAYER, &(x), &(y));
 	game->image.wall = mlx_xpm_file_to_image(game->mlx, WALL, &(x), &(y));
-	game->image.exit = mlx_xpm_file_to_image(game->mlx, DOOR, &(x), &(y));
+	game->image.exit = mlx_xpm_file_to_image(game->mlx, EARTH, &(x), &(y));
 	game->image.floor = mlx_xpm_file_to_image(game->mlx, FLOOR, &(x), &(y));
 }
 
@@ -36,9 +36,9 @@ void	put_img(t_game *game, int x, int y)
 	else if (now == 'P')
 		put_player(game, x, y);
 	else if (now == 'E')
-		put_door(game, x, y);
+		put_place_exit(game, x, y);
 	else if (now == 'C')
-		put_coin(game, x, y);
+		put_collectable(game, x, y);
 	else if (now == 'D')
 		put_player(game, x, y);
 }
